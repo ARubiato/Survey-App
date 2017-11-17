@@ -2,6 +2,7 @@
 <?php
 ob_Start();
 $Name = '';
+<<<<<<< HEAD
 $Username = '';
 $Password = '';
 $Confirm_password = '';
@@ -10,14 +11,28 @@ $Confirm_password = '';
   session_start();
 
 
+=======
+$Email = '';
+$Password = '';
+  #include_once('connect.php');
+
+  $empty = false;
+
+  session_start();
+>>>>>>> 5c5e67fc4d341a23111924f9d8ea8637e288dedc
     $con = mysqli_connect('localhost','root','admin123','info') or die ("Failed to connect database" .mysqli_error($con));
 
     if (isset($_POST['Name'])) {
     $Name = $_POST['Name'];
 }
 
+<<<<<<< HEAD
 if (isset($_POST['Username'])) {
     $Username = $_POST['Username'];
+=======
+if (isset($_POST['Email'])) {
+    $Email = $_POST['Email'];
+>>>>>>> 5c5e67fc4d341a23111924f9d8ea8637e288dedc
 }
 
 if (isset($_POST['Password'])) {
@@ -41,6 +56,7 @@ if(empty($Password)) {
   $nameError = "Please enter your password!";
 }
 
+<<<<<<< HEAD
 if(empty($Confirm_password)) {
 $error = true;
   $nameError = "Please enter your password!";
@@ -55,6 +71,9 @@ if($Password != $Confirm_password){
 
 
     $query = "INSERT INTO information (Name, Username, Password)  VALUES ('$Name' , '$Username', '$Password')" or die(mysqli_error());
+=======
+    $query = "INSERT INTO information (Name, Email, Password)  VALUES ('$Name' , '$Email', '$Password')" or die(mysqli_error());
+>>>>>>> 5c5e67fc4d341a23111924f9d8ea8637e288dedc
 
     $result = mysqli_query($con,$query);
 
@@ -104,6 +123,7 @@ mysqli_close($con);
                            <form action="sign-up.php" method = "post">
                             <div class = "form-group">
                                  <input class = "form-control" placeholder="Name" name = "Name" type="text" autofocus>
+<<<<<<< HEAD
                            </div>
 
                             <div class = "form-group">
@@ -560,6 +580,22 @@ mysqli_close($con);
 
 
                                 <input type = "submit" class="btn btn-lg btn-success btn-block" href >
+=======
+                            
+                            </div>
+                           <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="Email" type="email" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="Password" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+                                <input type = "submit" class="btn btn-lg btn-success btn-block" >
+>>>>>>> 5c5e67fc4d341a23111924f9d8ea8637e288dedc
                                 <p>Already have an account? Click<a href = "login.html"> <u>here</u></a>!</p>
                           </form>
                        </div>

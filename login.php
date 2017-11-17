@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+<<<<<<< HEAD
 $Username = '';
 $Password = '';
 session_start();
@@ -16,6 +17,34 @@ if (isset($_GET['Password'])) {
 
 
 $query = "SELECT Username FROM information WHERE Username = '$Username' and `Password = '$Password'";
+=======
+$Email = '';
+$Password = '';
+
+include('connect.php');
+session_start();
+ $con = mysqli_connect('localhost','root','admin123','info') or die ("Failed to connect database" .mysqli_error($con));
+
+ if (isset($_GET['Email'])) {
+    $Email = $_GET['Email'];
+}
+
+if (isset($_GET['Password'])) {
+    $Email = $_GET['Password'];
+}
+
+if($count == 1) {
+         session_register("Email");
+         $_SESSION['Email'] = $Email;
+         
+         header("location: welcome.php");
+      }else {
+         $error = "Your Login Name or Password is invalid";
+      }
+
+
+$query = "SELECT Email FROM information WHERE Email = '$Email' and `Password = '$Password'";
+>>>>>>> 5c5e67fc4d341a23111924f9d8ea8637e288dedc
 
 ?>
 
@@ -30,7 +59,11 @@ $query = "SELECT Username FROM information WHERE Username = '$Username' and `Pas
     <meta name="description" content="">
     <meta name="author" content="">
 
+<<<<<<< HEAD
     <title>Login</title>
+=======
+    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+>>>>>>> 5c5e67fc4d341a23111924f9d8ea8637e288dedc
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -60,6 +93,7 @@ $query = "SELECT Username FROM information WHERE Username = '$Username' and `Pas
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
+<<<<<<< HEAD
                         <h3 class="panel-title">LOG IN</h3>
                     </div>
                     <div class="panel-body">
@@ -67,6 +101,15 @@ $query = "SELECT Username FROM information WHERE Username = '$Username' and `Pas
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Username" name="Username" type="text" autofocus>
+=======
+                        <h3 class="panel-title">LOGIN</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="login.php" method = "post">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="Email" type="email" autofocus>
+>>>>>>> 5c5e67fc4d341a23111924f9d8ea8637e288dedc
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="Password" type="password" value="">
@@ -78,7 +121,11 @@ $query = "SELECT Username FROM information WHERE Username = '$Username' and `Pas
                                 </div>
                                  </fieldset>
                                 <!-- Change this to a button or input when using this as a form -->
+<<<<<<< HEAD
                                <a href = "index.html" class="btn btn-primary col-md-4 col-md-offset-4">Submit</button></a></div>  &nbsp;<p> Don't have an account? Click <a href = "sign-up.html"> <u>here</u></a>!</p>
+=======
+                               <input type = "submit" class="btn btn-lg btn-success btn-block"></a> &nbsp;<p> Don't have an account? Click <a href = "sign-up.php"> <u>here</u></a>!</p>
+>>>>>>> 5c5e67fc4d341a23111924f9d8ea8637e288dedc
                         </form>
                     </div>
                 </div>
